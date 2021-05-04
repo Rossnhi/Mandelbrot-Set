@@ -1,11 +1,19 @@
-let scale = 3;
+let generateButton;
+let scale = 1;
 let unit;
 let cen = [-0.5, 0];
 let iter = 5;
 function setup() {
   pixelDensity(1);
-  createCanvas(600, 600);
+  
+  let myCan = createCanvas(600, 600);
+  myCan.parent("canvasContainer");
+
   unit = width/scale;
+
+  generateButton = select("#gen");
+  generateButton.mousePressed(generate);
+
 }
 
 function draw() {
@@ -45,7 +53,7 @@ function drawMandelbrot() {
       let b = (cen[1] - scale/2) + (i/unit);
       let maandel = inMandelbrot([a,b]);
       if (maandel[0]){
-        colfil = 0;
+        colfil = 255;
       }
       else{
         colfil = 0 + (maandel[1] * 255/iter);
@@ -64,4 +72,17 @@ function drawMandelbrot() {
 
 function mousePressed() {
   console.log((cen[0] - scale/2) + (mouseX/unit), (cen[1] - scale/2) + (mouseY/unit));
+}
+
+function generate() {
+  let scaleInp = select("#scale");
+  let cenX = select("#centerX");
+  let cenY = select("#centerY");
+  let iterInp = select("#iter");
+  scale = Number(scaleInp.value());
+  unit = width/scale;
+  cen[0] = cenX.value();
+  cen[1] = cenY.value();
+  iter = iterInp.value();
+  redraw();
 }
