@@ -1,0 +1,37 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #111;
+  color: #eee;
+}
+canvas {
+  display: block;
+  width: 600px;
+  margin: 20px auto;
+}
+
+h1 {
+	font-family: 'Amatic SC', cursive;
+	font-size: 55px;
+	margin: 10px;
+	text-align: center;
+}
+
+#controls {
+	width: 650px;
+	margin: -10px auto 5px;
+}
+
+#controls span {
+	margin-left: 10px;
+}
+
+#iter {
+	margin-top: 10px;
+}
+
+#saveImage {
+	float: right;
+	margin-top: 10px;
+	margin-right: 20px;
+}
