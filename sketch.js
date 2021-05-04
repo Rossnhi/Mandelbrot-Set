@@ -1,18 +1,28 @@
 let generateButton;
-let scale = 1;
+let scale = 3;
 let unit;
 let cen = [-0.5, 0];
-let iter = 5;
+let iter = 50;
+let scaleInp;
+let cenX;
+let cenY;
+let iterInp;
+let save;
 function setup() {
   pixelDensity(1);
   
   let myCan = createCanvas(600, 600);
   myCan.parent("canvasContainer");
+  myCan.mousePressed(setCenter); 
 
   unit = width/scale;
 
-  generateButton = select("#gen");
+  generateButton = select("#gen");  //dont use document.getElementById() as that returns an HTML.element, not p5.elementand styles and callbacks such as .mousePressed only works for p5.element.
   generateButton.mousePressed(generate);
+
+  save = select("#saveImage");
+  save.mousePressed(saveImage
+  );
 
 }
 
@@ -70,19 +80,27 @@ function drawMandelbrot() {
   updatePixels();
 }
 
-function mousePressed() {
-  console.log((cen[0] - scale/2) + (mouseX/unit), (cen[1] - scale/2) + (mouseY/unit));
+function setCenter() {
+  cenX = select("#centerX");
+  cenY = select("#centerY");
+  cenX.value((cen[0] - scale/2) + (mouseX/unit));
+  cenY.value((cen[1] - scale/2) + (mouseY/unit));
 }
 
 function generate() {
-  let scaleInp = select("#scale");
-  let cenX = select("#centerX");
-  let cenY = select("#centerY");
-  let iterInp = select("#iter");
+  scaleInp = select("#scale")
+  cenX = select("#centerX");
+  cenY = select("#centerY");
+  iterInp = select("#iter");
   scale = Number(scaleInp.value());
   unit = width/scale;
   cen[0] = cenX.value();
   cen[1] = cenY.value();
   iter = iterInp.value();
   redraw();
+}
+
+function saveImage() {
+  let fileName = scale.toString() + "," + cen.toString() + "," + iter.toString();
+  saveCanvas(fileName, "png");
 }
