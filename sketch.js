@@ -1,10 +1,9 @@
 let scale = 3;
 let unit;
-let cen = [-0.5, 0];
-let iter = 5;
+let cen = [-0.5,0];
+let iter = 20;
 function setup() {
-  pixelDensity(1);
-  createCanvas(600, 600);
+  createCanvas(650, 650);
   unit = width/scale;
 }
 
@@ -37,29 +36,22 @@ function inMandelbrot([a, b]) {
 }
 
 function drawMandelbrot() {
-  let colfil;
-  loadPixels();
-  for ( let i = 0; i < height; i++) {
+  for ( let i = 0; i < width; i++) {
     for ( let j = 0; j < width; j++) {
       let a = (cen[0] - scale/2) + (j/unit);
       let b = (cen[1] - scale/2) + (i/unit);
       let maandel = inMandelbrot([a,b]);
       if (maandel[0]){
-        colfil = 0;
+        stroke(255);
+        fill(255);
       }
       else{
-        colfil = 0 + (maandel[1] * 255/iter);
+        stroke(0 + (maandel[1] * 255/iter));
+        fill(0 + (maandel[1] * 255/iter));
       }
-      
-      let index = (j + (i * width )) * 4;
-       pixels[index] = colfil;
-       pixels[index + 1] = colfil;
-       pixels[index + 2] = colfil;
-       pixels[index + 3] = 255;
-
+      ellipse(j, i, 1, 1);
     }
   }
-  updatePixels();
 }
 
 function mousePressed() {
