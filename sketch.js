@@ -2,7 +2,7 @@ let generateButton;
 let scale = 3;
 let unit;
 let cen = [-0.5, 0];
-let iter = 50;
+let iter = 20;
 let scaleInp;
 let cenX;
 let cenY;
@@ -10,8 +10,7 @@ let iterInp;
 let save;
 function setup() {
   pixelDensity(1);
-  
-  let myCan = createCanvas(600, 600);
+  let myCan = createCanvas(Math.floor(0.9 * displayWidth), Math.floor (0.9 * displayWidth));
   myCan.parent("canvasContainer");
   myCan.mousePressed(setCenter); 
 
@@ -39,14 +38,14 @@ function compMult([a1, b1], [a2, b2]) {
   return([(a1 * a2) - (b1 * b2), (a1 * b2) + (b1 * a2)]);
 }
 
-function compMag([a, b]) {
-  return(Math.sqrt((a * a) + (b * b)));
+function compSqMag([a, b]) {
+  return((a * a) + (b * b));
 }
 
 function inMandelbrot([a, b]) {
   let fz = [a,b];
   for ( let i = 0; i < iter; i++) {
-    if (compMag(fz) >= 2) {
+    if (compSqMag(fz) > 4) {
       return([false, i]);
     }
     fz = compAdd(compMult(fz, fz), [a,b]);
