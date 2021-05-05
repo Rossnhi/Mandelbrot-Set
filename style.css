@@ -3,6 +3,7 @@ html, body {
   padding: 0;
   background-color: #111;
   color: #eee;
+  font-family: 'Amatic SC', cursive;
 }
 canvas {
   display: block;
@@ -12,7 +13,6 @@ canvas {
 }
 
 h1 {
-	font-family: 'Amatic SC', cursive;
 	font-size: 55px;
 	margin: 10px;
 	text-align: center;
