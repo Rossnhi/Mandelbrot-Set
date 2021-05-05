@@ -18,6 +18,10 @@ h1 {
 	text-align: center;
 }
 
+input {
+	border-radius: 10px;
+}
+
 #controls {
 	max-width: 650px;
 	margin: -10px auto 5px;
@@ -27,12 +31,23 @@ h1 {
 	margin-left: 10px;
 }
 
-#iter {
-	margin-top: 10px;
+#scaCenCont {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-bottom: -15px;
+}
+
+#scale {
+	margin-bottom: 5px;
+}
+
+#center {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
 #saveImage {
-	float: right;
-	margin-top: 10px;
-	margin-right: 20px;
+	margin-left: 10px;
 }
