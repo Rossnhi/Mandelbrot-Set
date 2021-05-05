@@ -16,9 +16,17 @@
   	</header>
   	<div id = "canvasContainer"></div>
 	<div id = "controls">
-  		<span>Scale: </span><input id = "scale" type = "text" value = "3">
-    	<span> Center: X </span><input id = "centerX" type = "text" value = "-0.5">
-    	<span> Y </span><input id = "centerY" type = "text" value = "0">
+  		<div id="scaCenCont">
+  			<span>Scale: </span><input id = "scale" type = "text" value = "3">
+	    	<div id = "center">	
+	    		<div>	
+	    			<span> Center: X </span><input id = "centerX" type = "text" value = "-0.5">
+	    		</div>
+	    		<div>
+	    			<span> Y </span><input id = "centerY" type = "text" value = "0">
+	    		</div>
+	   		</div>
+	 	</div>
     	<br>
     	<span>Iterations: </span><input id = "iter" type = "text" value = "50">
     	<input id = "gen" type = "button" value = "Generate">
