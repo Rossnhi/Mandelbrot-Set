@@ -54,8 +54,6 @@ footer {
 }
 
 #controls {
-	position: relative;
-	left: 20px;
 	max-width: 650px;
 	margin: -10px auto 15px;
 }
