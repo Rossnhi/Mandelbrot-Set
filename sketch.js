@@ -91,7 +91,7 @@ function generate() {
   cenX = select("#centerX");
   cenY = select("#centerY");
   iterInp = select("#iter");
-  scale = Number(scaleInp.value());
+  scale = 1/scaleInp.value();
   unit = width/scale;
   cen[0] = cenX.value();
   cen[1] = cenY.value();
