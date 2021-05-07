@@ -11,40 +11,100 @@
 
   </head>
   <body>
-  	<header>
-  		<h1>~ Mandelbrot Set ~</h1>
-  	</header>
+    <header>
+      <h1>~ Mandelbrot Set ~</h1>
+    </header>
+    <hr>
+    <div style="position: relative;">
+      <div id = "menuIcon" onClick = "popUp()">
+        <div class="menuItem" id = "menuItem1"></div>
+        <div class="menuItem" id = "menuItem2"></div>
+        <div class="menuItem" id = "menuItem3"></div>
+        <div class="menuItem" id = "menuItem4"></div>
+      </div>
+      <div id ="menu">
+        <div id= "menuInnerContainer">
+          <h3>Here are some interesting co-ordinates I have picked for you to visit!</h3>
+          <ol>
+            <li>
+              <img src="Assets/1(1).png" height="50px" width="50px">
+              <a href="#" class = "points"> Go Here</a>
+            </li>
+            <hr>
+            <li>
+              <img src="Assets/2(2).png" height="50px" width="50px">
+              <a href="#" class = "points"> Go Here</a>
+            </li>
+            <hr>
+            <li>
+              <img src="Assets/3(3).png" height="50px" width="50px">
+              <a href="#" class = "points"> Go Here</a>
+            </li>
+            <hr>
+            <li>
+              <img src="Assets/4(4).png" height="50px" width="50px">
+              <a href="#" class = "points"> Go Here</a>
+            </li>
+            <hr>
+            <li>
+              <img src="Assets/5(5).png" height="50px" width="50px">
+              <a href="#" class = "points"> Go Here</a>
+            </li>
+            <hr>
+            <li>
+              <img src="Assets/6(6).png" height="50px" width="50px">
+              <a href="#" class = "points"> Go Here</a>
+            </li>
+            <hr>
+            <li>
+              <img src="Assets/7(7).png" height="50px" width="50px">
+              <a href="#" class = "points"> Go Here</a>
+            </li>
+            <hr>
+            <li>
+              <img src="Assets/8(8).png" height="50px" width="50px">
+              <a href="#" class = "points"> Go Here</a>
+            </li>
+            <hr>
+          </ol>
+        </div>
+      </div>
+    </div>
     <hr>
   	<div id = "canvasContainer"></div>
-	<div id = "controls">
-  	<div id="scaCenCont">
-  		<span>Zoom: </span><input id = "scale" type = "text" value = "0.333">
-	    <div id = "center">	
-	    	<div>	
-	    		<span> Center: X </span><input id = "centerX" type = "text" value = "-0.5">
-	    	</div>
-	    	<div>
-	    		<span> Y </span><input id = "centerY" type = "text" value = "0">
-	    	</div>
-	   	</div>
+    <div id = "controls">
+      <div id="scaCenCont">
+        <span>Zoom: </span><input id = "scale" type = "text" value = "0.333">
+        <div id = "center">	
+	    	  <div>	
+	    	    <span> Center: X </span><input id = "centerX" type = "text" value = "-0.5">
+	    	  </div>
+	    	  <div>
+	    	    <span> Y </span><input id = "centerY" type = "text" value = "0">
+	    	  </div>
+        </div>
+      </div>
+      <br>
+      <span>Iterations: </span><input id = "iter" type = "text" value = "20">
+      <input id = "gen" type = "button" value = "Generate">
+      <input id = "saveImage" type = "button" value = "Save Image">
     </div>
-    <br>
-    <span>Iterations: </span><input id = "iter" type = "text" value = "20">
-    <input id = "gen" type = "button" value = "Generate">
-    <input id = "saveImage" type = "button" value = "Save Image">
-  </div>
     <hr>
+    <script src = "pageEvents.js"> </script>
     <script src="sketch.js"> </script>
     <div class = "instructionContainer">
       <h2>~ What is this? ~</h2>
       <p>This is a tool I made to observe and explore the <a href = "https://youtu.be/NGMRB4O922I">mandelbrot set!</a> You can watch a cool mandelbrot zoom video <a href = "https://youtu.be/PD2XgQOyCCk">here.</a></p>
+      <p>
+        To get you started, I have handpicked some co-ordinates for you to go to. Click on the menu in the top left section to have a look at them. 
+      </p>
       <p>
         Here's how you can use this tool to explore the complex plane yourself:-
       </p>
         <ul>
           <li>Zoom: The bigger the number the more zoomed in/ magnified will be the image.</li>
           <li>Center: Where are you zooming in to? The center. you can enter your desired co-ordinates manually, there are some really cool looking points you can look up on the internet. Alternatively you can click anywhere on the canvas and the co-ordinates of that point will automatically be entered for you.</li>
-          <li>Iterations: More the iterations, better the quality and accuracy of the image. But when you are zoomed out, a high iteration count will be an overkill, plus it takes longer to process. Start out with a low iteration count, and as you zoom in more increase it to get a clearer image. Take note that if you go above 1500-2000 it will take significantly longer to process the image.</li>
+          <li>Iterations: More the iterations, better the quality and accuracy of the image. But when you are zoomed out, a high iteration count will be an overkill, plus it takes longer to process. Start out with a low iteration count, and as you zoom in more, increase it to get a clearer image. Take note that if you go above 1500-2000 it will take significantly longer time to process the image.</li>
         </ul>
       <p>
         You can download an image of your cool looking discovery by clicking on the save image button. Happy exploring! :)
