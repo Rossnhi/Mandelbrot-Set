@@ -53,14 +53,20 @@ footer {
 	font-size: 25px;
 }
 
+#menuIconContainer {
+	position: relative;
+	height: 30px;
+	width: 30px;
+	margin-left: 10%;
+}
+
 #menuIcon {
 	display: flex;
 	position: relative;
 	flex-direction: column;
 	justify-content: space-evenly;
-	height: 30px;
-	width: 30px;
-	margin-left: 10%;
+	height: 100%;
+	width: 100%;
 	z-index: 5;
 }
 
@@ -80,13 +86,13 @@ footer {
 #menu {
 	display: block;
 	position: absolute;
-	width: 90vw;
+	width: 85vw;
 	height: 0px;
 	max-height: 600px;
 	max-width: 400px;
 	background-color: rgba(30, 30, 30, 0.95);
 	top: -5px;
-	left: 5vw;
+	left: -15px;
 	border-radius: 10px; 
 	transition: height 0.5s;
 }
