@@ -8,10 +8,12 @@ let cenX;
 let cenY;
 let iterInp;
 let save;
+let interestingPoints = [[200,0.23380833,0.529875,300],[2000,0.27877166666,0.0081249999,500],[500,-0.77568377,0.13646737,150],[125000,-1.74936736,0,300],[10000,-0.9074270308123249,0.26800196078431376,400],[1000,-0.43470703372124603,-0.579964741957389,500],[10000,-1.2004388409981441,0.2890386244586513,300],[20,-0.9175,0.2583,200]];
+let points;
 function setup() {
   pixelDensity(1);
   let myCan = createCanvas(Math.floor(0.9 * displayWidth), Math.floor (0.9 * displayWidth));
-  myCan.parent("canvasContainer");
+  myCan.parent("#canvasContainer");
   myCan.mousePressed(setCenter); 
 
   unit = width/scale;
@@ -20,9 +22,12 @@ function setup() {
   generateButton.mousePressed(generate);
 
   save = select("#saveImage");
-  save.mousePressed(saveImage
-  );
+  save.mousePressed(saveImage);
 
+  points = selectAll(".points");
+  for ( let i = 0; i < points.length; i++) {
+    points[i].mousePressed(function() {popUp.call(), goTo.call(this, i)}); // IMPORTANT: This is how you pass arguments to callbacks
+  }
 }
 
 function draw() {
@@ -102,4 +107,16 @@ function generate() {
 function saveImage() {
   let fileName = scale.toString() + "," + cen.toString() + "," + iter.toString();
   saveCanvas(fileName, "png");
+}
+
+function goTo(i) {
+  scaleInp = select("#scale")
+  cenX = select("#centerX");
+  cenY = select("#centerY");
+  iterInp = select("#iter");
+  scaleInp.value(interestingPoints[i][0]);
+  cenX.value(interestingPoints[i][1]);
+  cenY.value(interestingPoints[i][2]);
+  iterInp.value(interestingPoints[i][3]);
+  generate();
 }
